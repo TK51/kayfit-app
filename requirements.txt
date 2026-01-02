@@ -1,2 +1,33 @@
-pandas
-pytest
+# ============================
+# Kay Fit App - requirements.txt
+# ============================
+
+# Core dependencies
+argparse           # CLI support for command-line execution
+logging            # Centralized logging for debugging and tracking
+json               # Config and data serialization
+pathlib            # File path handling (preferred over os.path)
+
+# Data handling
+pandas             # Data manipulation and export to Excel
+openpyxl           # Excel file creation and formatting
+
+# PDF export
+weasyprint         # HTML-to-PDF rendering engine
+jinja2             # Templating engine for PDF/HTML generation
+
+# GUI
+tkinter            # Built-in Python GUI toolkit (for intake and progress screens)
+PyQt5              # Optional advanced GUI framework (if switching from Tkinter)
+
+# Packaging
+pyinstaller         # Build standalone .exe for Windows deployment
+
+# Testing
+pytest             # Unit and integration testing for CI/CD pipeline
+
+# Scheduling (optional)
+schedule           # For automated weekly program generation tasks
+
+# Optional future extensions
+fastapi            # REST API support for web-based program generation
