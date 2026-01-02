@@ -19,34 +19,34 @@ Kay Fit App is a modular Python application that generates personalized strength
 ```
 kayfit_app/
 ├── core/
-│   ├── config.py        # Config-driven constants
-│   ├── planner.py       # Weekly plan generator
-│   ├── exporter.py      # PDF & Excel export
-│   ├── utils.py         # Helpers (rounding, % calc)
-│   ├── validator.py     # Data validation
-│   ├── logger.py        # Logging setup
+│   ├── config.py          # Config-driven constants: RM cycles, gymnastics %, rounding rules
+│   ├── planner.py         # Weekly plan generator: combines engine outputs
+│   ├── exporter.py        # PDF & Excel export logic
+│   ├── utils.py           # Helpers: percentage calculations, rounding logic
+│   ├── validator.py       # Data validation for intake and config
+│   ├── logger.py          # Centralized logging setup
 ├── engine/
-│   ├── lifts.py         # RM logic
-│   ├── gymnastics.py    # ME scaling
-│   ├── aux_lifts.py     # Accessory lifts
-│   ├── timing.py        # Round timing & cardio intervals
-│   ├── percentages.py   # RM & gymnastics % cycles
-│   ├── constructor.py   # Dynamic program builder
+│   ├── lifts.py           # RM logic: table generation, warm-up & working sets
+│   ├── gymnastics.py      # ME scaling logic and set count per day
+│   ├── aux_lifts.py       # Accessory lifts logic and superset integration
+│   ├── timing.py          # Timing logic for rounds and cardio intervals
+│   ├── percentages.py     # RM & gymnastics percentage cycles
+│   ├── constructor.py     # Dynamic program builder: goal-based cycle selection
 ├── gui/
-│   ├── intake_screen.py # Week 0 intake
-│   ├── progress_screen.py
-│   ├── generate_screen.py
+│   ├── intake_screen.py   # GUI for Week 0 intake form
+│   ├── progress_screen.py # GUI for progress tracking
+│   ├── generate_screen.py # GUI for program generation and export options
 ├── templates/
-│   ├── pdf_template.html
-│   └── excel_template.xlsx
+│   ├── pdf_template.html  # HTML template for PDF export
+│   └── excel_template.xlsx # Excel template for export formatting
 ├── output/
-│   ├── weekly_pdfs/
-│   ├── full_program.pdf
-│   └── program.xlsx
+│   ├── weekly_pdfs/       # Folder for individual weekly PDFs
+│   ├── full_program.pdf   # Placeholder for full program PDF
+│   └── program.xlsx       # Placeholder for Excel summary
 └── tests/
-    ├── test_core.py
-    ├── test_engine.py
-    ├── test_gui.py
+    ├── test_core.py       # Unit tests for core modules
+    ├── test_engine.py     # Unit tests for engine logic
+    ├── test_gui.py        # Unit tests for GUI components
 ```
 
 ## Roadmap
