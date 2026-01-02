@@ -2,9 +2,6 @@
 # Kay Fit App - requirements.txt
 # ============================
 
-# Core dependencies (built-in: argparse, logging, json, pathlib → DO NOT LIST)
-# Only third-party libraries go here
-
 # Data handling
 pandas             # Data manipulation and export to Excel
 openpyxl           # Excel file creation and formatting
@@ -14,7 +11,6 @@ weasyprint         # HTML-to-PDF rendering engine
 jinja2             # Templating engine for PDF/HTML generation
 
 # GUI
-tkinter            # Built-in for Python (do NOT install via pip)
 PyQt5              # Optional advanced GUI framework (if switching from Tkinter)
 
 # Packaging
