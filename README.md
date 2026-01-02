@@ -14,7 +14,9 @@ Kay Fit App is a modular Python application that generates personalized strength
 
 ---
 
+
 ## Architecture
+```
 kayfit_app/
 ├── core/
 │   ├── config.py        # Config-driven constants
@@ -42,10 +44,10 @@ kayfit_app/
 │   ├── full_program.pdf
 │   └── program.xlsx
 └── tests/
-├── test_core.py
-├── test_engine.py
-├── test_gui.py
-
+    ├── test_core.py
+    ├── test_engine.py
+    ├── test_gui.py
+```
 
 ## Roadmap
 **Phase 0: Repo Setup**
