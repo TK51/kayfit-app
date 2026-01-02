@@ -1,2 +1,26 @@
-pandas
-pytest
+# Core dependencies (built-in: argparse, logging, json, pathlib → DO NOT LIST)
+# Only third-party libraries go here
+
+# Data handling
+pandas             # Data manipulation and export to Excel
+openpyxl           # Excel file creation and formatting
+
+# PDF export
+weasyprint         # HTML-to-PDF rendering engine
+jinja2             # Templating engine for PDF/HTML generation
+
+# GUI
+tkinter            # Built-in for Python (do NOT install via pip)
+PyQt5              # Optional advanced GUI framework (if switching from Tkinter)
+
+# Packaging
+pyinstaller        # Build standalone .exe for Windows deployment
+
+# Testing
+pytest             # Unit and integration testing for CI/CD pipeline
+
+# Scheduling (optional)
+schedule           # For automated weekly program generation tasks
+
+# Optional future extensions
+fastapi            # REST API support for web-based program generation
