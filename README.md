@@ -84,7 +84,7 @@ kayfit_app/
 ## How to Run MVP
 ```bash
 # Clone repo
-git clone https://github.com/<your-org>/kayfit-app.git
+git clone https://github.com/TK51/kayfit-app.git
 cd kayfit-app
 
 # Install dependencies
