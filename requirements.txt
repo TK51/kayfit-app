@@ -2,11 +2,8 @@
 # Kay Fit App - requirements.txt
 # ============================
 
-# Core dependencies
-argparse           # CLI support for command-line execution
-logging            # Centralized logging for debugging and tracking
-json               # Config and data serialization
-pathlib            # File path handling (preferred over os.path)
+# Core dependencies (built-in: argparse, logging, json, pathlib → DO NOT LIST)
+# Only third-party libraries go here
 
 # Data handling
 pandas             # Data manipulation and export to Excel
@@ -17,11 +14,11 @@ weasyprint         # HTML-to-PDF rendering engine
 jinja2             # Templating engine for PDF/HTML generation
 
 # GUI
-tkinter            # Built-in Python GUI toolkit (for intake and progress screens)
+tkinter            # Built-in for Python (do NOT install via pip)
 PyQt5              # Optional advanced GUI framework (if switching from Tkinter)
 
 # Packaging
-pyinstaller         # Build standalone .exe for Windows deployment
+pyinstaller        # Build standalone .exe for Windows deployment
 
 # Testing
 pytest             # Unit and integration testing for CI/CD pipeline
