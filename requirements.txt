@@ -1,3 +1,7 @@
+# ============================
+# Kay Fit App - requirements.txt
+# ============================
+
 # Core dependencies (built-in: argparse, logging, json, pathlib → DO NOT LIST)
 # Only third-party libraries go here
 
