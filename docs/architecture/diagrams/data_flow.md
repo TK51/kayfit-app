@@ -100,17 +100,17 @@ No hidden state. No magic.
 
 ## Data Flow Summary
 
-- GUI Intake
+### -- GUI Intake  
 ↓  
-- Validator / Config
+- Validator / Config  
 ↓  
-- Engine Constructor
+- Engine Constructor  
 ↓  
-- Planner
+- Planner  
 ↓  
-- Exporter
+- Exporter  
 ↓  
-- User Files
+- User Files  
 
 
 ---
