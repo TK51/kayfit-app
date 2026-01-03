@@ -1,0 +1,84 @@
+GUI FLOW
+============================================================
+
+OVERVIEW
+--------
+The GUI collects user input, displays progress,
+and triggers program generation.
+
+The GUI contains no business logic.
+
+------------------------------------------------------------
+SCREENS
+------------------------------------------------------------
+
+SCREEN: Intake Screen
+SOURCE:
+- gui/intake_screen.py
+
+USER ACTIONS:
+- Enter RM and ME values
+- Select goals and constraints
+- Submit intake data
+
+SYSTEM ACTIONS:
+- Pass raw data to validator
+- Display validation errors if present
+
+
+SCREEN: Progress Screen
+SOURCE:
+- gui/progress_screen.py
+
+PURPOSE:
+- Review historical inputs
+- Track cycle-to-cycle changes
+- Display deltas
+
+NOTES:
+- Read-only with respect to engine logic
+
+
+SCREEN: Generate Screen
+SOURCE:
+- gui/generate_screen.py
+
+USER ACTIONS:
+- Select export options
+- Trigger program generation
+
+SYSTEM ACTIONS:
+- Invoke planner
+- Invoke exporter
+- Display success or failure state
+
+------------------------------------------------------------
+GUI FLOW SEQUENCE
+------------------------------------------------------------
+
+User
+ |
+ v
+Intake Screen
+ |
+ v
+Validation
+ |
+ v
+Generate Screen
+ |
+ v
+Planner
+ |
+ v
+Exporter
+ |
+ v
+Files Generated
+
+------------------------------------------------------------
+GUI DESIGN RULES
+------------------------------------------------------------
+- GUI never computes percentages
+- GUI never builds programs
+- GUI only displays validated data
