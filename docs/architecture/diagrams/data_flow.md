@@ -100,7 +100,7 @@ No hidden state. No magic.
 
 ## Data Flow Summary
 
-### -- GUI Intake  
+- GUI Intake  
 ↓  
 - Validator / Config  
 ↓  
