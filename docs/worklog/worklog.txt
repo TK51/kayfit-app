@@ -194,10 +194,10 @@ kayfit_app/
 │   │   └── snapshot.md         # Optional: static snapshot of progress
 │   │
 │   ├── engineering/
-│   |
 │   |   ├── sds.md              # System Design Specification
 │   |   ├── functions_code.txt  # Raw functions / logic notes
 │   |   └── funtions.md         # Probably duplicate of functions_code (typo preserved)
+│   |
 │   └── worklog/
 │       ├── worklog.txt         # Append-only log of work done so far
 │       └──decisions.text      # Architectural & technical decisions
