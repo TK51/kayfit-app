@@ -1,0 +1,64 @@
+EXPORT FLOW
+============================================================
+
+OVERVIEW
+--------
+Export logic converts internal training models into
+user-facing artifacts.
+
+Exporters are format-specific and data-agnostic.
+
+------------------------------------------------------------
+EXPORT TARGETS
+------------------------------------------------------------
+
+EXPORT: PDF
+SOURCE:
+- core/exporter.py
+- templates/pdf_template.html
+
+PROCESS:
+1. Inject program data into HTML template
+2. Render HTML to PDF
+3. Save output file
+
+OUTPUT:
+- output/weekly_pdfs/*.pdf
+- output/full_program.pdf
+
+
+EXPORT: Excel
+SOURCE:
+- core/exporter.py
+- templates/excel_template.xlsx
+
+PROCESS:
+1. Populate predefined sheets
+2. Apply formatting rules
+3. Save workbook
+
+OUTPUT:
+- output/program.xlsx
+
+------------------------------------------------------------
+EXPORT TRIGGER FLOW
+------------------------------------------------------------
+
+Generate Screen
+ |
+ v
+Planner Output
+ |
+ v
+Exporter
+ |\
+ | +--> PDF
+ |
+ +--> Excel
+
+------------------------------------------------------------
+EXPORT DESIGN RULES
+------------------------------------------------------------
+- Exporters never modify program data
+- Templates contain presentation only
+- All outputs are reproducible from intake + config
