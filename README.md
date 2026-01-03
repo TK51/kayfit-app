@@ -19,34 +19,55 @@ Kay Fit App is a modular Python application that generates personalized strength
 ```
 kayfit_app/
 ├── core/
-│   ├── config.py          # Config-driven constants: RM cycles, gymnastics %, rounding rules
-│   ├── planner.py         # Weekly plan generator: combines engine outputs
-│   ├── exporter.py        # PDF & Excel export logic
-│   ├── utils.py           # Helpers: percentage calculations, rounding logic
-│   ├── validator.py       # Data validation for intake and config
-│   ├── logger.py          # Centralized logging setup
+│   ├── config.py           # Config-driven constants: RM cycles, gymnastics %, rounding rules
+│   ├── planner.py          # Weekly plan generator: combines engine outputs
+│   ├── exporter.py         # PDF & Excel export logic
+│   ├── utils.py            # Helpers: percentage calculations, rounding logic
+│   ├── validator.py        # Data validation for intake and config
+│   └── logger.py           # Centralized logging setup
+│
 ├── engine/
-│   ├── lifts.py           # RM logic: table generation, warm-up & working sets
-│   ├── gymnastics.py      # ME scaling logic and set count per day
-│   ├── aux_lifts.py       # Accessory lifts logic and superset integration
-│   ├── timing.py          # Timing logic for rounds and cardio intervals
-│   ├── percentages.py     # RM & gymnastics percentage cycles
-│   ├── constructor.py     # Dynamic program builder: goal-based cycle selection
+│   ├── lifts.py            # RM logic: tables, warm-up & working sets
+│   ├── gymnastics.py       # ME scaling logic and set counts per day
+│   ├── aux_lifts.py        # Accessory lifts logic and superset integration
+│   ├── timing.py           # Timing logic for rounds and cardio intervals
+│   ├── percentages.py      # RM & gymnastics percentage cycles
+│   └── constructor.py      # Dynamic program builder: goal-based cycle selection
+│
 ├── gui/
-│   ├── intake_screen.py   # GUI for Week 0 intake form
-│   ├── progress_screen.py # GUI for progress tracking
-│   ├── generate_screen.py # GUI for program generation and export options
+│   ├── intake_screen.py    # Week 0 intake form (RMs, ME, constraints)
+│   ├── progress_screen.py  # Progress tracking & cycle deltas
+│   └── generate_screen.py  # Program generation & export options
+│
 ├── templates/
-│   ├── pdf_template.html  # HTML template for PDF export
+│   ├── pdf_template.html   # HTML template for PDF export
 │   └── excel_template.xlsx # Excel template for export formatting
+│
 ├── output/
-│   ├── weekly_pdfs/       # Folder for individual weekly PDFs
-│   ├── full_program.pdf   # Placeholder for full program PDF
-│   └── program.xlsx       # Placeholder for Excel summary
+│   ├── weekly_pdfs/        # Generated weekly PDFs
+│   ├── full_program.pdf   # Full program export
+│   └── program.xlsx       # Excel summary export
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── diagrams/       # Architecture & data flow diagrams
+│   │   └── data_flow.md    # Engine → planner → exporter flow
+│   │
+│   ├── product/
+│   │   ├── concept.md      # Problem statement, philosophy, non-goals
+│   │   ├── pitch.md        # Short-form pitch (users / recruiters)
+│   │   └── roadmap.md     # Versioned roadmap (v0.x → v1.x)
+│   │
+│   └── engineering/
+│       ├── sds.md          # System Design Specification
+│       ├── decisions.md    # Architectural & technical decisions
+│       └── risks.md        # Known risks, constraints, mitigation
+│
 └── tests/
-    ├── test_core.py       # Unit tests for core modules
-    ├── test_engine.py     # Unit tests for engine logic
-    ├── test_gui.py        # Unit tests for GUI components
+    ├── test_core.py        # Unit tests for core modules
+    ├── test_engine.py      # Unit tests for engine logic
+    └── test_gui.py         # Unit tests for GUI components
+
 ```
 
 ## Roadmap
