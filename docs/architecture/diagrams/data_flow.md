@@ -99,4 +99,23 @@ No hidden state. No magic.
 ---
 
 ## Data Flow Summary
+GUI Intake
+↓
+Validator / Config
+↓
+Engine Constructor
+↓
+Planner
+↓
+Exporter
+↓
+User Files
+
+
+---
+
+## Design Notes
+- All transformations are deterministic.
+- No module mutates global state.
+- Output can always be regenerated from intake + config.
 
