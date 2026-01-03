@@ -1,0 +1,208 @@
+# worklog.txt
+# what is done so far.txt
+
+--------------------------------
+
+## Project Progress Log
+
+This file records completed setup and implementation steps for the Kay Fit App project.
+
+--------------------------------
+
+## Step 1: Repository Initialization
+
+- Created the GitHub repository `kayfit-app`
+- Added `.gitignore` using the Python template
+- Added `LICENSE` file with the MIT license
+- Added a placeholder `README.md` (to be replaced later)
+- Created `requirements.txt` containing third-party libraries only
+
+The following third-party dependencies were added:
+
+- pandas
+- openpyxl
+- weasyprint
+- jinja2
+- PyQt5
+- pyinstaller
+- pytest
+- schedule
+- fastapi
+
+Built-in Python modules were intentionally excluded:
+- argparse
+- logging
+- json
+- tkinter
+
+--------------------------------
+
+## Step 2: Branch Strategy
+
+- Established `main` as the stable release branch
+- Established `dev` as the integration branch
+- Defined `feature/*` branches for feature-specific development
+
+--------------------------------
+
+## Step 3: Directory Skeleton
+
+The initial project directory structure was created as follows:
+
+kayfit_app/
+|
+|-- core/
+| |-- config.py
+| |-- planner.py
+| |-- exporter.py
+| |-- utils.py
+| |-- validator.py
+| |-- logger.py
+|
+|-- engine/
+| |-- lifts.py
+| |-- gymnastics.py
+| |-- aux_lifts.py
+| |-- timing.py
+| |-- percentages.py
+| |-- constructor.py
+|
+|-- gui/
+| |-- intake_screen.py
+| |-- progress_screen.py
+| |-- generate_screen.py
+|
+|-- templates/
+| |-- pdf_template.html
+| |-- excel_template.xlsx
+|
+|-- output/
+| |-- weekly_pdfs/
+| |-- full_program.pdf
+| |-- program.xlsx
+|
+|-- tests/
+| |-- test_core.py
+| |-- test_engine.py
+| |-- test_gui.py
+
+
+
+The main application entry point was created as:
+
+main.py
+
+markdown
+Копіювати код
+
+--------------------------------
+
+## Step 4: GitHub Actions Workflow
+
+A GitHub Actions CI workflow was implemented at:
+
+`.github/workflows/test.yml`
+
+The workflow was configured to:
+- Trigger on push and pull request events
+- Run on the latest Ubuntu runner
+- Install required system dependencies
+- Set up Python 3.11
+- Install project dependencies
+- Execute the test suite using pytest
+
+Workflow configuration:
+
+name: Python CI
+on: push, pull_request
+
+jobs:
+build:
+runs-on: ubuntu-latest
+
+less
+Копіювати код
+steps:
+  - Checkout code
+    uses: actions/checkout@v3
+
+  - Install system dependencies
+    run: sudo apt-get update && sudo apt-get install -y python3-tk
+
+  - Set up Python
+    uses: actions/setup-python@v4
+    python-version: 3.11
+
+  - Install dependencies
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+
+  - Run tests
+    pytest
+diff
+Копіювати код
+
+## 20260103 - Architecture change
+## 5. Architecture
+
+```text
+kayfit_app/
+├── core/
+│   ├── config.py           # Config-driven constants: RM cycles, gymnastics %, rounding rules
+│   ├── planner.py          # Weekly plan generator: combines engine outputs
+│   ├── exporter.py         # PDF & Excel export logic
+│   ├── utils.py            # Helpers: percentage calculations, rounding logic
+│   ├── validator.py        # Data validation for intake and config
+│   └── logger.py           # Centralized logging setup
+│
+├── engine/
+│   ├── lifts.py            # RM logic: tables, warm-up & working sets
+│   ├── gymnastics.py       # ME scaling logic and set counts per day
+│   ├── aux_lifts.py        # Accessory lifts logic and superset integration
+│   ├── timing.py           # Timing logic for rounds and cardio intervals
+│   ├── percentages.py      # RM & gymnastics percentage cycles
+│   └── constructor.py      # Dynamic program builder: goal-based cycle selection
+│
+├── gui/
+│   ├── intake_screen.py    # Week 0 intake form (RMs, ME, constraints)
+│   ├── progress_screen.py  # Progress tracking & cycle deltas
+│   └── generate_screen.py  # Program generation & export options
+│
+├── templates/
+│   ├── pdf_template.html   # HTML template for PDF export
+│   └── excel_template.xlsx # Excel template for export formatting
+│
+├── output/
+│   ├── weekly_pdfs/        # Generated weekly PDFs
+│   ├── full_program.pdf    # Full program export
+│   └── program.xlsx        # Excel summary export
+│
+├── docs/
+│   ├── architecture/
+│   │   ├── diagrams/           # Architecture & data flow diagrams
+│   │   ├── data_flow.md        # Engine → planner → exporter flow
+│   │   ├── engine_modules.md   # Engine module relationships (converted from txt)
+│   │   ├── export_flow.md      # Export flow (converted from txt)
+│   │   └── gui_flow.md         # GUI flow (converted from txt)
+│   │
+│   ├── product/
+│   │   ├── vision.md           # Long-term direction
+│   │   ├── business_case.md    # Value, ROI, justification
+│   │   ├── concept.md          # Problem statement, philosophy, non-goals
+│   │   ├── pitch.md            # External-facing summary
+│   │   ├── roadmap.md          # Versioned milestones
+│   │   └── snapshot.md         # Optional: static snapshot of progress
+│   │
+│   ├── engineering/
+│   |
+│   |   ├── sds.md              # System Design Specification
+│   |   ├── functions_code.txt  # Raw functions / logic notes
+│   |   └── funtions.md         # Probably duplicate of functions_code (typo preserved)
+│   └── worklog/
+│       ├── worklog.txt         # Append-only log of work done so far
+│       └──decisions.text      # Architectural & technical decisions
+│
+└── tests/
+    ├── test_core.py            # Unit tests for core modules
+    ├── test_engine.py          # Unit tests for engine logic
+    └── test_gui.py             # Unit tests for GUI components
