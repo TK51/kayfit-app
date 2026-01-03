@@ -1,0 +1,8 @@
+## Decisions Log - Kay Fit App
+
+- 20260102 - Decided to create an app github repo, and elaborated the concept
+
+- 20260103 - Decided to elaborate on architecture and file structure of the repo on KayFitApp
+  -- should have videos filmed for the main moves
+  -- should have video folder in docs probably, so to be able to put things inside as links into rendered program
+  -- decided to have cardio programmed as bike or skip rope, and to have it loaded and increased progressively from week to week
